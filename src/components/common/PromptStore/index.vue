@@ -326,7 +326,7 @@ const dataSource = computed(() => {
 })
 
 if (promptList.value === undefined || promptList.value.length <= 0) {
-  downloadURL.value = 'https://raw.githubusercontent.com/PlexPt/awesome-chatgpt-prompts-zh/main/prompts-zh.json'
+  downloadURL.value = 'https://raw.githubusercontent.com/Kiteflyingee/academic_prompts/main/academic_prompt.json'
   downloadPromptTemplate()
 }
 </script>
