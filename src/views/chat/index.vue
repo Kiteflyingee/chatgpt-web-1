@@ -484,7 +484,8 @@ onUnmounted(() => {
           <template v-if="!dataSources.length">
             <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
               <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-              <span>使用/弹出prompt玩法</span>
+              <span>你好，我是ChatGPT！我是一款使用OpenAI训练的大型语言模型，可以用来与人类进行自然、流畅的对话。我可以回答各种问题，提供信息和建议，也可以进行闲聊。无论你需要什么样的帮助或答案，我都会尽力满足你的需求。除此之外，我还可以阅读文章、写作、翻译等。希望我能为你提供有价值的服务！\n
+                👋在提示词商店加载在线提示词，然后使用/体验prompt玩法</span>
             </div>
           </template>
           <template v-else>

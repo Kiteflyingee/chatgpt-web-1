@@ -325,10 +325,10 @@ const dataSource = computed(() => {
   return data
 })
 
-if (promptList.value === undefined || promptList.value.length <= 0) {
-  downloadURL.value = 'https://raw.githubusercontent.com/Kiteflyingee/academic_prompts/main/academic_prompt.json'
-  downloadPromptTemplate()
-}
+// if (promptList.value === undefined || promptList.value.length <= 0) {
+//   downloadURL.value = 'https://raw.githubusercontent.com/Kiteflyingee/academic_prompts/main/academic_prompt.json'
+//   downloadPromptTemplate()
+// }
 </script>
 
 <template>
