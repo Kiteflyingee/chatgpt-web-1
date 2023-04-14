@@ -215,8 +215,8 @@ const exportPromptTemplate = () => {
 const downloadPromptTemplate = async () => {
   try {
     importLoading.value = true
-    // const response = await fetch(downloadURL.value)
-    const response = await fetch('@assets/chatgpt-prompts-zh.json')
+    const response = await fetch(downloadURL.value)
+    // const response = await fetch('@assets/chatgpt-prompts-zh.json')
     const jsonData = await response.json()
     if ('key' in jsonData[0] && 'value' in jsonData[0])
       tempPromptValue.value = JSON.stringify(jsonData)
