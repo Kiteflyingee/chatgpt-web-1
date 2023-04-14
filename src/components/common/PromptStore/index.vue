@@ -3,6 +3,8 @@ import type { DataTableColumns } from 'naive-ui'
 import { computed, h, ref, watch } from 'vue'
 import { NButton, NCard, NDataTable, NDivider, NInput, NList, NListItem, NModal, NPopconfirm, NSpace, NTabPane, NTabs, NThing, useMessage } from 'naive-ui'
 import PromptRecommend from '../../../assets/recommend.json'
+import importJson from '../../../../public/prompts-zh.json'
+
 import { SvgIcon } from '..'
 import { usePromptStore } from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
@@ -213,7 +215,8 @@ const exportPromptTemplate = () => {
 const downloadPromptTemplate = async () => {
   try {
     importLoading.value = true
-    const response = await fetch(downloadURL.value)
+    // const response = await fetch(downloadURL.value)
+    const response = await fetch('@assets/chatgpt-prompts-zh.json')
     const jsonData = await response.json()
     if ('key' in jsonData[0] && 'value' in jsonData[0])
       tempPromptValue.value = JSON.stringify(jsonData)
@@ -236,6 +239,20 @@ const downloadPromptTemplate = async () => {
   finally {
     importLoading.value = false
   }
+}
+
+// 初始化
+const initPromptTemplate = async () => {
+  if ('act' in importJson[0] && 'prompt' in importJson[0]) {
+    const newJsonData = importJson.map((item: { act: string; prompt: string }) => {
+      return {
+        key: item.act,
+        value: item.prompt,
+      }
+    })
+    tempPromptValue.value = JSON.stringify(newJsonData)
+  }
+  importPromptTemplate()
 }
 
 // 移动端自适应相关
@@ -325,10 +342,10 @@ const dataSource = computed(() => {
   return data
 })
 
-// if (promptList.value === undefined || promptList.value.length <= 0) {
-//   downloadURL.value = 'https://raw.githubusercontent.com/Kiteflyingee/academic_prompts/main/academic_prompt.json'
-//   downloadPromptTemplate()
-// }
+if (promptList.value === 'undefined' || promptList.value.length < 1)
+  initPromptTemplate()
+
+//
 </script>
 
 <template>
