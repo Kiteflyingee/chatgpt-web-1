@@ -18,11 +18,11 @@ const userInfo = computed(() => userStore.userInfo)
           size="large"
           round
           :src="userInfo.avatar"
-          :fallback-src="defaultAvatar"
+          :fallback-src=defaultAvatar
         />
       </template>
       <template v-else>
-        <NAvatar size="large" round :src="defaultAvatar" />
+        <NAvatar size="large" round :src=defaultAvatar />
       </template>
     </div>
     <div class="flex-1 min-w-0 ml-2">
